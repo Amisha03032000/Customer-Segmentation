@@ -1,0 +1,118 @@
+#installing packages 
+install.packages("plotrix")
+
+#loading the data-set
+customer_data=read.csv("Desktop/customer-segmentation-dataset/mall.csv")
+str(customer_data)
+
+#retrieval of data
+names(customer_data)
+
+names(customer_data)
+
+head(customer_data)
+
+#summary 
+summary(customer_data$Age)
+
+head(customer_data)
+summary(customer_data$Age)
+
+sd(customer_data$Age)
+summary(customer_data$Annual.Income..k..)
+
+#In this, we will create a barplot and a piechart to show the gender distribution across our customer_data dataset.
+
+#CUSTOMER GENDER VISUALISATION
+
+a=table(customer_data$Gender)
+barplot(a,main="Using BarPlot to display Gender Comparision",
+       ylab="Count",
+       xlab="Gender",
+       col=rainbow(8),
+       legend=rownames(a))
+       
+       sd(customer_data$Annual.Income..k..)
+summary(customer_data$Age)
+
+#From the above barplot, we observe that the number of females is higher than the males. 
+#Now, let us visualize a pie chart to observe the ratio of male and female distribution.
+
+pct=round(a/sum(a)*100)
+lbs=paste(c("Female","Male")," ",pct,"%",sep=" ")
+library(plotrix)
+pie3D(a,labels=lbs,
+   main="Pie Chart Depicting Ratio of Female and Male")
+   
+   #From the above graph,
+#we conclude that the percentage of females is 56%, whereas the percentage of male in the customer dataset is 44%.
+#Visualization of Age Distribution
+
+#Let us plot a histogram to view the distribution to plot the frequency of customer ages. 
+#We will first proceed by taking summary of the Age variable.
+
+summary(customer_data$Age)
+
+#For getting a histogram based on the data provided in .csv file
+hist(customer_data$Age,
+    col="green",
+    main="Histogram to Show Count of Age Class",
+    xlab="Age Class",
+    ylab="Frequency",
+    labels=TRUE)
+    
+    #The Above Histogram states that, there are maximum people from the age class ranging from 30-35 .
+#WE using BOXPLOT for descriptive analysis of the age column
+boxplot(customer_data$Age,
+       col="#ff0077",
+       main="Boxplot for Descriptive Analysis of Age")
+       
+       #From the above two visualizations, we conclude that the maximum customer ages are between 30 and 35. 
+#The minimum age of customers is 18, whereas, the maximum age is 70.
+#Analysis of the Annual Income of the Customers
+# Here, Using R we will make visualisations over the summary of the annual-incomes of the customer.
+
+# Here 1) Summary of the Data
+#     2) Histogram of the Data
+#     3) Density Plot of the Data
+
+#CODE:
+plot(density(customer_data$Annual.Income..k..),
+    col="yellow",
+    main="Density Plot for Annual Income",
+    xlab="Annual Income Class",
+    ylab="Density")
+polygon(density(customer_data$Annual.Income..k..),
+        col="#ccff66")
+        
+        #From the above descriptive analysis, we can say that...
+#min_annual_cust_income= 15 
+#max_annual_cust_income =137. 
+#People earning an average income of 70 have the highest frequency count in our histogram distribution. 
+#The average salary of all the customers = 60.56.
+#-----------------------------------------------------------------------------------------------------------------------
+
+# WHAT IS NORMAL DISTRIBUTION?
+#Is a probability distribution that is symmetric about the mean
+#showing that data near the mean are more frequent in occurrence than data far from the mean.
+#In graph form, normal distribution will appear as a bell curve, Hence the above distribution is a "normal-distribution"
+
+#Analyzing Spending Score of the Customers
+
+summary(customer_data$Spending.Score..1.100.)
+
+#HISTOGRAM for analyzing score of customers.
+
+hist(customer_data$Spending.Score..1.100.,
+    main="HistoGram for Spending Score",
+    xlab="Spending Score Class",
+    ylab="Frequency",
+    col="#ccff66",
+    labels=TRUE)
+    
+    #ANALYSIS
+# minimum spending score is 1
+# maximum spending score is 99  
+# average spending score is 50.20.
+#We can see Descriptive Analysis of Spending Score is that Min is 1, Max is 99 and avg. is 50.20. 
+#From the histogram, we conclude that customers between class(spending) 40-50 have the highest spending score among all the classes.
